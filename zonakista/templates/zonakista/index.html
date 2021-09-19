@@ -1,0 +1,69 @@
+{% extends "zonakista/base/base.html" %}
+
+{% block body %}
+{% if banner %}
+<div class="container-fluid gv-dark-blue pt-2">
+    <div class="container py-4 text-light">
+        <h2>{{ banner.title }}</h2>
+        <p>{{ banner.summary }}</p>
+        <p>
+            <a class="text-light fs-5" href="{{ banner.get_absolute_url }}">
+                {{ banner.action_text }}
+                <i class="fas fa-arrow-right ms-2"></i>
+            </a>
+        </p>
+    </div>
+</div>
+{% endif %}
+
+<div class="container pt-4 pb-2">
+    <div class="row pt-3">
+        <div class="col">
+            <h2 class="mb-3">Zatuzi</h2>
+        </div>
+    </div>
+    <div class="row">
+        {% if articles.count > 0 %}
+            {% for article in articles %}
+                <div class="col">
+                    <div class="card">
+                        {% if article.thumbnail %}
+                        <img src="{{ article.thumbnail.url }}" draggable="false" alt="Koisa idras" class="card-img-top gv-card-img">
+                        {% else %}
+                        <div class="card-img-top gv-card-img gv-card-img-blank"></div>
+                        {% endif %}
+                        <div class="card-body">
+                            <h5 class="card-title">{{ article.title }}</h5>
+                            <p class="card-text mb-2">{{ article.summary }}</p>
+                            <p class="mb-1">
+                                <a href="{{ article.get_absolute_url }}" class="small">
+                                    {{ article.action_text }}
+                                    <i class="fas fa-arrow-right ms-2"></i>
+                                </a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                
+            {% endfor %}
+        {% else %}
+            <div class="col">
+                <p class="text-muted">Idroi kra darsetam ada mas.</p>
+            </div>
+        {% endif %}
+    </div>
+</div>
+<div class="container pt-4 pb-4">
+    <div class="row">
+        <div class="col">
+            <h2 class="mb-3">Sarloi</h2>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <a href="#" class="h4">Ustu, ustu.</a>
+            <p class="mt-2">Ustu, ustu, ustu.</p>
+        </div>
+    </div>
+</div>
+{% endblock body %}

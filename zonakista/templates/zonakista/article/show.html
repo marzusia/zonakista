@@ -1,0 +1,21 @@
+{% extends "zonakista/base/base.html" %}
+
+{% block body %}
+<div class="container-fluid gv-dark-blue">
+    <div class="container pt-5 pb-2 text-white">
+        <div class="row">
+            <div class="col pt-3 d-flex align-items-end">
+                <h2 class="me-3">{{ article.title }}</h2>
+                <span class="gv-text-subtle-blue mb-2">{{ article.created_at|date:"Y-m-d H:i" }} urús</span>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container pt-4">
+    <div class="row">
+        <div class="col">
+            {{ article.body }}
+        </div>
+    </div>
+</div>
+{% endblock %}

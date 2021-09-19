@@ -1,0 +1,38 @@
+.gv-navbar {
+    padding: .8rem 3rem;
+}
+
+.gv-dark-blue {
+    background: #153A7F;
+}
+
+.gv-navbar .gv-nav-flag {
+    margin-right: .8rem;
+    max-width: 68px;
+}
+
+.gv-card-img {
+    height: 240px;
+}
+
+.gv-card-img-blank {
+    background: #eeeeee;
+}
+
+.gv-text-subtle-blue {
+    color: #b6c3db;
+}
+
+.gv-mini-avatar {
+    width: 32px;
+    height: 32px;
+    border-radius: 68px;
+}
+
+.gv-profile-avatar {
+    width: 180px;
+    height: 180px;
+    border: 1px solid #cccccc;
+    padding: 4px;
+    border-radius: 4px;
+}
