@@ -21,12 +21,15 @@ from django.conf.urls.static import static
 from .views.profile import ProfileView
 from .views.static import IndexView
 from .views.article import ArticleShowView, ArticleIndexView
+from .views.auth import LoginView, LogoutView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('huzindra', ProfileView.as_view(), name='profile.show'),
     path('idra/<slug:slug>', ArticleShowView.as_view(), name='article.show'),
     path('idra', ArticleIndexView.as_view(), name='article.index'),
+    path('anidaisi', LoginView.as_view(), name='login'),
+    path('vidaisi', LogoutView.as_view(), name='logout'),
     path('', IndexView.as_view(), name='index'),
 ]
 

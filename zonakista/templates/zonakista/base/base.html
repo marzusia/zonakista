@@ -17,7 +17,7 @@
     <body>
         <nav class="navbar navbar-dark bg-dark gv-navbar">
             <div class="container-fluid">
-                <a href="/" class="btn btn-link navbar-brand">
+                <a href="{% url 'index' %}" class="btn btn-link navbar-brand">
                     <img class="gv-nav-flag" src="{% static 'vedia-small.png' %}" alt="Veza">
                     Veza
                 </a>
@@ -45,13 +45,13 @@
                             </div>
                         </button>
                         <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="GvProfileDropdownBtn">
-                            <li><a href="/huzindra" class="dropdown-item">Mena huzindra</a></li>
+                            <li><a href="{% url 'profile.show' %}" class="dropdown-item">Mena huzindra</a></li>
                             <li><hr class="dropdown-divider"></li>
-                            <li><a href="#" class="dropdown-item">Vidaisi</a></li>
+                            <li><a href="{% url 'logout' %}" class="dropdown-item">Vidaisi</a></li>
                         </ul>
                     </div>
                     {% else %}
-                    <a href="#" class="btn btn-link text-white text-decoration-none">
+                    <a href="{% url 'login' %}" class="btn btn-link text-white text-decoration-none">
                         <i class="fas fa-user me-2"></i>
                         Anidaisi
                     </a>

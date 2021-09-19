@@ -1,0 +1,33 @@
+{% extends "zonakista/base/base.html" %}
+
+{% block body %}
+<div class="container pt-5">
+    <div class="row">
+        <div class="col-12 col-md-5">
+            <h2>Anidaisi</h2>
+            {% if form.errors %}
+            <p class="text-danger">Kurbanam ya aniruna dusni vua. Aya vitra.</p>
+            {% endif %}
+
+            <form method="POST" action="{% url 'login' %}">
+                {% csrf_token %}
+                <div class="mt-3">
+                    <label for="{{ form.username.name }}" class="form-label">Kurbanam</label>
+                    <input type="text" class="form-control" name="{{ form.username.name }}" id="{{ form.username.name }}">
+                </div>
+                <div class="mt-3">
+                    <label for="{{ form.password.name }}" class="form-label">Aniruna</label>
+                    <input type="password" class="form-control" name="{{ form.password.name }}" id="{{ form.password.name }}">
+                </div>
+                <div class="mt-3">
+                    <input type="submit" class="btn btn-primary" value="Anidaisi">
+                    <input type="hidden" name="next" value="{% url 'index' %}">
+                </div>
+            </form>
+        </div>
+        <div class="col-12 col-md-7 pt-2 ps-5">
+            <h4>Lovina ada as?</h4>
+        </div>
+    </div>
+</div>
+{% endblock %}
