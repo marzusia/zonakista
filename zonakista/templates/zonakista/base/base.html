@@ -47,6 +47,10 @@
                         <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="GvProfileDropdownBtn">
                             <li><a href="{% url 'profile.show' %}" class="dropdown-item">Mena huzindra</a></li>
                             <li><hr class="dropdown-divider"></li>
+                            {% if request.user.is_superuser %}
+                            <li><a href="/admin" class="dropdown-item">Udarsam</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            {% endif %}
                             <li><a href="{% url 'logout' %}" class="dropdown-item">Vidaisi</a></li>
                         </ul>
                     </div>
