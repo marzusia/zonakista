@@ -60,10 +60,14 @@
         </div>
     </div>
     <div class="row">
-        <div class="col">
-            <a href="#" class="h4">Ustu, ustu.</a>
-            <p class="mt-2">Ustu, ustu, ustu.</p>
+        {% for link in links %}
+        <div class="col-6 col-md-3">
+            <a href="{{ link.full_url }}" class="h4">{{ link.title }}</a>
+            {% if link.summary %}
+            <p class="mt-2">{{ link.summary }}</p>
+            {% endif %}
         </div>
+        {% endfor %}
     </div>
 </div>
 {% endblock body %}

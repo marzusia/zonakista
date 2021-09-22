@@ -1,5 +1,6 @@
 from .base import BaseView
 from ..models.articles import Article
+from ..models.links import Link
 
 class IndexView(BaseView):
     template_name = 'zonakista/index.html'
@@ -12,4 +13,5 @@ class IndexView(BaseView):
         context['banner'] = Article.objects.filter(
             banner=True,
         ).order_by('-created_at').first()
+        context['links'] = Link.objects.all().order_by('title')
         return context

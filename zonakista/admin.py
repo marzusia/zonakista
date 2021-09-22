@@ -4,6 +4,7 @@ from .models.cities import City
 from .models.articles import Article
 from .models.organisation import Organisation
 from .models.lexicon import Word, Sense, Example, Gloss, Derivation
+from .models.links import Link
 
 for model in [
     Citizen,
@@ -14,6 +15,7 @@ for model in [
     Sense,
     Example,
     Gloss,
-    Derivation
+    Derivation,
+    Link
 ]:
     admin.site.register(model)
