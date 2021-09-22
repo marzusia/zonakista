@@ -35,7 +35,10 @@ class Link(models.Model):
     @property
     def full_url(self):
         try:
-            return reverse(self.url, kwargs={'slug': self.slug or None})
+            kwargs={}
+            if self.slug:
+                kwargs['slug'] = self.slug
+            return reverse(self.url, kwargs=kwargs)
         except NoReverseMatch:
             return ''
 

@@ -22,7 +22,7 @@ from .views.profile import ProfileView
 from .views.static import IndexView
 from .views.article import ArticleShowView, ArticleIndexView
 from .views.auth import LoginView, LogoutView
-from .views.lexicon import WordView
+from .views.lexicon import DictionaryView, WordView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -30,6 +30,7 @@ urlpatterns = [
     path('idra/<slug:slug>', ArticleShowView.as_view(), name='article.show'),
     path('idra', ArticleIndexView.as_view(), name='article.index'),
     path('gosakokram/<slug:slug>', WordView.as_view(), name='lexicon.show'),
+    path('gosakokram', DictionaryView.as_view(), name='lexicon.index'),
     path('anidaisi', LoginView.as_view(), name='login'),
     path('vidaisi', LogoutView.as_view(), name='logout'),
     path('', IndexView.as_view(), name='index'),

@@ -1,0 +1,37 @@
+{% extends "zonakista/base/base.html" %}
+
+{% block body %}
+<div class="container-fluid gv-dark-blue">
+    <div class="container pt-5 pb-2 text-white">
+        <div class="row">
+            <div class="col pt-3">
+                <h2>Gosakokram</h2>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container pt-4">
+    <div class="row">
+        <div class="col">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Guma</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for word in words %}
+                    <tr>
+                        <td>
+                            <a href="{% url 'lexicon.show' word.slug %}">
+                                {{ word.headword }}
+                            </a>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+{% endblock body %}
