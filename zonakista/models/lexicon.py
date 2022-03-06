@@ -4,8 +4,6 @@ from .base.mixins import AutoSlugMixin
 
 
 class Word(UpdatableModel, AutoSlugMixin):
-    auto_slug_populate_from = 'headword'
-
     headword = models.CharField(
         max_length=255,
         unique=True,
@@ -24,6 +22,8 @@ class Word(UpdatableModel, AutoSlugMixin):
         unique=True,
         help_text='How this word will appear in URLs. Leave blank to auto-generate.'
     )
+
+    auto_slug_populate_from = 'headword'
 
     @property
     def all_senses(self):

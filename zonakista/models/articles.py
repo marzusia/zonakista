@@ -3,9 +3,8 @@ from django.urls import reverse
 from .base.abstracts import UpdatableModel
 from .base.mixins import AutoSlugMixin
 
-class Article(UpdatableModel, AutoSlugMixin):
-    auto_slug_populate_from = 'title'
 
+class Article(UpdatableModel, AutoSlugMixin):
     title = models.CharField(
         verbose_name='Headline',
         help_text='The headline of the article.',
@@ -48,6 +47,8 @@ class Article(UpdatableModel, AutoSlugMixin):
         default=False,
         help_text='Should this article appear as a banner on the homepage?'
     )
+
+    auto_slug_populate_from = 'title'
 
     def get_absolute_url(self):
         return reverse('article.show', kwargs={'slug': self.slug})

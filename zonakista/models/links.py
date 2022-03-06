@@ -1,5 +1,6 @@
 from django.db import models
-from django.urls import reverse, NoReverseMatch
+from django.urls import NoReverseMatch, reverse
+
 
 class Link(models.Model):
     title = models.CharField(
@@ -20,7 +21,7 @@ class Link(models.Model):
     url = models.CharField(
         max_length=128,
         help_text=(
-            'The name of the view to which the link should point.'
+            'The name of the view to which the link should point, or a valid external address beginning with https://'
         ),
     )
     slug = models.CharField(
@@ -32,10 +33,16 @@ class Link(models.Model):
         ),
     )
 
+    def is_external(self):
+        return self.url.startswith('https://') or self.url.startswith('http://')
+
     @property
     def full_url(self):
+        if self.is_external():
+            return self.url
+
         try:
-            kwargs={}
+            kwargs = {}
             if self.slug:
                 kwargs['slug'] = self.slug
             return reverse(self.url, kwargs=kwargs)
